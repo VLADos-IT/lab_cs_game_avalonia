@@ -1,86 +1,44 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="lab_cs_game_avalonia.MainWindow"
-        Title="Бой с монстром"
-        MinWidth="360" MinHeight="480">
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" x:Class="lab_cs_game_avalonia.MainWindow" Title="Бой с монстром" MinWidth="360" MinHeight="480">
 
         <Grid Margin="10" RowDefinitions="Auto,*" ColumnDefinitions="*">
-                <TextBlock Grid.Row="0" Text="Бой против монстра"
-                           FontWeight="Bold"
-                           FontSize="24"
-                           HorizontalAlignment="Center"
-                           Margin="0,0,0,10"
-                           TextWrapping="Wrap"/>
+                <TextBlock Grid.Row="0" Text="Бой против монстра" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,10" TextWrapping="Wrap"/>
                 <Grid Grid.Row="1" RowDefinitions="Auto,Auto,*" ColumnDefinitions="*,Auto,*" ColumnSpacing="10" RowSpacing="10">
-                    <Border Grid.Row="0" Grid.Column="0" Background="#F7FFF7" BorderBrush="Gray"
-                            BorderThickness="1" CornerRadius="15"
-                            Padding="10"
-                            MinWidth="100">
+                        <Border Grid.Row="0" Grid.Column="0" Background="#F7FFF7" BorderBrush="Gray" BorderThickness="1" CornerRadius="15" Padding="10" MinWidth="100">
 
-                        <StackPanel Spacing="5">
-                            <TextBlock Text="Игрок" FontWeight="Bold" FontSize="16"/>
-                            <TextBlock Text="HP 100 / 100"/>
-                            <ProgressBar Value="100" Maximum="100" Height="5"
-                                         HorizontalAlignment="Stretch"
-                                         MinWidth="50"
-                                         Foreground="#512bd4"/>
-                            <TextBlock Text="Сила: 6-12" Foreground="Gray"/>
-                        </StackPanel>
-                    </Border>
+                                <StackPanel Spacing="5">
+                                        <TextBlock Text="Игрок" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock x:Name="PlayerHpText" Text="HP 100 / 100"/>
+                                        <ProgressBar x:Name="PlayerHpBar" Value="100" Maximum="100" Height="5" HorizontalAlignment="Stretch" MinWidth="50" Foreground="#512bd4"/>
+                                        <TextBlock Text="Сила: 6-12" Foreground="Gray"/>
+                                </StackPanel>
+                        </Border>
 
-                    <Border Grid.Row="0" Grid.Column="1" Width="2"
-                            Background="#141414"
-                            HorizontalAlignment="Center" CornerRadius="1"/>
+                        <Border Grid.Row="0" Grid.Column="1" Width="2" Background="#141414" HorizontalAlignment="Center" CornerRadius="1"/>
 
-                    <Border Background="#FFF7F7" BorderBrush="Gray"
-                            BorderThickness="1" CornerRadius="15"
-                            Padding="10" Grid.Row="0" Grid.Column="2" MinWidth="100">
-                        <StackPanel Spacing="5">
-                            <TextBlock Text="Монстр" FontWeight="Bold" FontSize="16"/>
-                            <TextBlock Text="HP 80 / 80"/>
-                            <ProgressBar Value="80" Maximum="80" Height="5"
-                                         HorizontalAlignment="Stretch"
-                                         MinWidth="50"
-                                         Foreground="#512bd4"/>
-                            <TextBlock Text="Сила: 5-10" Foreground="Gray"/>
-                        </StackPanel>
-                    </Border>
-                    <WrapPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0"
-                               HorizontalAlignment="Center"
-                               ItemHeight="40">
-                        <Button x:Name="AttackButton" Content="Атаковать"
-                                Background="#c8c8c8"
-                                MinWidth="120"
-                                Margin="3"
-                                IsEnabled="False"/>
-                        <Button x:Name="HealButton" Content="Вылечиться"
-                                Background="#c8c8c8"
-                                MinWidth="120"
-                                Margin="3"
-                                IsEnabled="False"/>
-                        <Button x:Name="SuperAttackButton" Content="Супер-атака"
-                                Background="#c8c8c8"
-                                MinWidth="120"
-                                Margin="3"
-                                IsEnabled="False"/>
-                        <Button x:Name="NewGameButton" Content="Новая игра"
-                                Background="#512bd4"
-                                Foreground="White"
-                                Margin="3"
-                                MinWidth="120"/>
-                    </WrapPanel>
+                        <Border Background="#FFF7F7" BorderBrush="Gray" BorderThickness="1" CornerRadius="15" Padding="10" Grid.Row="0" Grid.Column="2" MinWidth="100">
+                                <StackPanel Spacing="5">
+                                        <TextBlock Text="Монстр" FontWeight="Bold" FontSize="16"/>
+                                        <TextBlock x:Name="MonsterHpText" Text="HP 80 / 80"/>
+                                        <ProgressBar x:Name="MonsterHpBar" Value="80" Maximum="80" Height="5" HorizontalAlignment="Stretch" MinWidth="50" Foreground="#512bd4"/>
+                                        <TextBlock Text="Сила: 5-10" Foreground="Gray"/>
+                                </StackPanel>
+                        </Border>
+                        <WrapPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" ItemHeight="40">
+                                <Button x:Name="AttackButton" Content="Атаковать" Background="#c8c8c8" MinWidth="120" Margin="3" IsEnabled="False"/>
+                                <Button x:Name="HealButton" Content="Вылечиться" Background="#c8c8c8" MinWidth="120" Margin="3" IsEnabled="False"/>
+                                <Button x:Name="SuperAttackButton" Content="Супер-атака" Background="#c8c8c8" MinWidth="120" Margin="3" IsEnabled="False"/>
+                                <Button x:Name="NewGameButton" Content="Новая игра" Background="#512bd4" Foreground="White" Margin="3" MinWidth="120"/>
+                        </WrapPanel>
 
-                    <Border Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0"
-                            Background="#E0E0E0" BorderBrush="Gray"
-                            BorderThickness="1" CornerRadius="10"
-                            Padding="10">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
-                            <StackPanel x:Name="BattleLogPanel"/>
-                        </ScrollViewer>
-                    </Border>
+                        <Border Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0" Background="#E0E0E0" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="10">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
+                                        <StackPanel x:Name="BattleLogPanel"/>
+                                </ScrollViewer>
+                        </Border>
                 </Grid>
         </Grid>
 </Window>
+
